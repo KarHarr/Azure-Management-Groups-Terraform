@@ -22,6 +22,21 @@ resource "azurerm_management_group" "managementgroup_childB0" {
   parent_management_group_id = azurerm_management_group.managementgroup_parent.id
   }
 
+resource "azurerm_management_group" "managementgroup_childA1" {
+  display_name               = var.childgroupA1
+  parent_management_group_id = azurerm_management_group.managementgroup_childA0.id
+  }
+
+resource "azurerm_management_group" "managementgroup_childA2" {
+  display_name               = var.childgroupA2
+  parent_management_group_id = azurerm_management_group.managementgroup_childA0.id
+  }
+
+resource "azurerm_management_group" "managementgroup_childA3" {
+  display_name               = var.childgroupA3
+  parent_management_group_id = azurerm_management_group.managementgroup_childA0.id
+  }
+
 resource "azurerm_management_group" "managementgroup_childB1" {
   display_name               = var.childgroupB1
   parent_management_group_id = azurerm_management_group.managementgroup_childB0.id
@@ -37,23 +52,8 @@ resource "azurerm_management_group" "managementgroup_childB3" {
   parent_management_group_id = azurerm_management_group.managementgroup_childB0.id
   }
 
-resource "azurerm_management_group" "managementgroup_childC0" {
-  display_name               = var.childgroupC0
-  parent_management_group_id = azurerm_management_group.managementgroup_parent.id
-  }
-
-resource "azurerm_management_group" "managementgroup_childD0" {
-  display_name               = var.childgroupD0
-  parent_management_group_id = azurerm_management_group.managementgroup_parent.id
-  }
-
-resource "azurerm_management_group" "managementgroup_childD1" {
-  display_name               = var.childgroupD1
-  parent_management_group_id = azurerm_management_group.managementgroup_childD0.id
-  }
-
-resource "azurerm_management_group" "managementgroup_childD2" {
-  display_name               = var.childgroupD2
-  parent_management_group_id = azurerm_management_group.managementgroup_childD0.id
+resource "azurerm_management_group" "managementgroup_childC1" {
+  display_name               = var.childgroupC1
+  parent_management_group_id = azurerm_management_group.managementgroup_childB2.id
   }
 

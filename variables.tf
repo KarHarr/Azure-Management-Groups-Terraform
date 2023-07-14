@@ -1,57 +1,58 @@
 /*Root Management Group
 
-ChildA0  ChildB0   childC0  childD0
-         ChildB1   childC1  childD1
-         childB2   childC2  childD2
+ChildA0  ChildB0
+ChildA1  ChildA2 ChildA3
+ChildB1  ChildB2 ChildB3
+childC1
 
 */
 # Root Management Group
 variable "managementgroup" {
   type = string
-  default = "azure365pro1"
+  default = "mg-isg-root"
 }
-# Level 1 Down Child Management Group A0 , B0 , C0, D0 , E0
+# Level 1 Down Child Management Group A0
 variable "childgroupA0" { 
   type = string
-  default = "decom"
+  default = "mg-isg-platform"
 }
-# Level 1 Down Child Management Group A0 , B0 , C0, D0 , E0
+# Level 1 Down Child Management Group B0
 variable "childgroupB0" { 
   type = string
-  default = "platform"
+  default = "mg-isg-sd1"
 }
-# Level 2 Down Child Management Group of B0 (Platform) B1 , B2 , B3
+# Level 2 Down Child Management Group of A0 (mg-isg-platform) A1 , A2 , A3
+variable "childgroupA1" { 
+  type = string
+  default = "mg-isg-platform-conn"
+}
+# Level 2 Down Child Management Group of A0 (mg-isg-platform) A1 , A2 , A3
+variable "childgroupA2" { 
+  type = string
+  default = "mg-isg-platform-iden"
+}
+# Level 2 Down Child Management Group of A0 (mg-isg-platform) A1 , A2 , A3
+variable "childgroupA3" { 
+  type = string
+  default = "mg-isg-platform-mgmt"
+}
+# Level 2 Down Child Management Group of B0 (mg-isg-sd1) B1 , B2 , B3
 variable "childgroupB1" { 
   type = string
-  default = "connectivity"
+  default = "mg-isg-sd1-nprd"
 }
-# Level 2 Down Child Management Group of B0 (Platform) B1 , B2 , B3
+# Level 2 Down Child Management Group of B0 (mg-isg-sd1) B1 , B2 , B3
 variable "childgroupB2" { 
   type = string
-  default = "management"
+  default = "mg-isg-sd1-prd"
 }
-# Level 2 Down Child Management Group of B0 (Platform) B1 , B2 , B3
+# Level 2 Down Child Management Group of B0 (mg-isg-sd1) B1 , B2 , B3
 variable "childgroupB3" { 
   type = string
-  default = "identity"
+  default = "mg-isg-sd1-sbox"
 }
-# Level 1 Down Child Management Group A0 , B0 , C0, D0 , E0
-variable "childgroupC0" { 
+# Level 3 Down Child Management Group of B2 (mg-isg-sd1) C1
+variable "childgroupC1" { 
   type = string
-  default = "sandbox"
-}
-# Level 1 Down Child Management Group A0 , B0 , C0, D0 , E0
-variable "childgroupD0" { 
-  type = string
-  default = "workloads"
-}
-# Level 2 Down Child Management Group of D1 (workloads) D1 , D2
-variable "childgroupD1" { 
-  type = string
-  default = "businessunit1"
-}
-# Level 2 Down Child Management Group of D2 (workloads) D1 , D2
-variable "childgroupD2" { 
-  type = string
-  default = "businessunit2"
+  default = "mg-isg-sd1-vdi-ctx"
 }
